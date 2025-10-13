@@ -12,14 +12,21 @@ int main(){
 	printf("Digite um valor X: ");
 	scanf("%i", &x);
 	
-	for(int i = 0; i < 100; i++){
+	// tá fora para todos os valores de X usarem os mesmos valores
+	for(int i = 0; i < 100; i++)
 		vet[i] = 1 + rand() % 19;
-		if(vet[i] == x){
-			printf("%i*\n", vet[i]);
-			cont++;
-			continue;
+		
+	for(int j = x; j > 0; j--){
+		for(int i = 0; i < 100; i++){
+			if(vet[i] == j){
+				//printf("%i*\n", vet[i]);
+				cont++;
+				continue;
+			}
+			//printf("%i\n", vet[i]);
 		}
-		printf("%i\n", vet[i]);
+		printf("\nO número %i apareceu %i vezes.\n\n", x--, cont);
+		cont = 0;
 	}
-	printf("\nO número %i apareceu %i vezes.", x, cont);
+	
 }
