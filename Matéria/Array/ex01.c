@@ -15,7 +15,7 @@ int main(){
 	for(int i = 0; i < 100; i++){
 		vet[i] = 1 + rand() % 19;
 		if(vet[i] == x){
-			printf("%i\n", vet[i]);
+			printf("%i*\n", vet[i]);
 			cont++;
 			continue;
 		}
