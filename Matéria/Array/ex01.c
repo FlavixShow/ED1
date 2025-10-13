@@ -14,7 +14,7 @@ int main(){
 	
 	// está fora para que todos os valores de X usarem os mesmos valores
 	for(int i = 0; i < 100; i++)
-		vet[i] = 1 + rand() % 19;
+		vet[i] = 1 + rand() % 20;
 		
 	for(int j = x; j > 0; j--){
 		for(int i = 0; i < 100; i++){
