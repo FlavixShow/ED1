@@ -9,7 +9,7 @@ int main(){
 	printf("Insira o valor de N: ");
 	scanf("%i", &n);
 	
-	int matriz[n][n] = {};
+	int matriz[n][n];
 	
 	srand(time(NULL));
 	
