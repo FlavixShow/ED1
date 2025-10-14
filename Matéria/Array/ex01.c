@@ -24,7 +24,7 @@ int main(){
 			printf("%i\n", vet[i]);
 		}
 		
-		printf("\nO número %i apareceu %i vezes.\n\n", x--, cont);
+		printf("\nO número %i apareceu %i vezes.\n\n", x, cont);
 		cont = 0;
 	}while(x > 0);
 }
