@@ -8,7 +8,7 @@ int main(){
 	int tamVet = 40;
 
 	for(int i = 0; i < tamVet; i++){
-		vet[i] = i;
+		vet[i] = 1 + rand() % 20;
 		printf(" %02i ", vet[i]);
 		if(!((i+1)%10))
 			printf(" | ");

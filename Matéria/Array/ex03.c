@@ -9,8 +9,8 @@ int main(){
 	
 	//define os valores e imprime o vetor normal;
 	for(int i = 0; i < tamVet; i++){
-		//vet[i] = rand() % 2;
-		vet[i] = i; //para facilitar o teste
+		vet[i] = 1 + rand() % 20;
+		//vet[i] = i; //para facilitar o teste
 		printf("%02i ", vet[i]);
 		if(!((i+1)%10))
 			printf("| ");
