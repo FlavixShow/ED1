@@ -183,9 +183,9 @@ int main(){
 			break;
 		}
 		
-		
+		/*
 		//debug
-		/*printf("x: %i y: %i valor pego: %i municão gasta: %i xBonus: %i yBonus: %i", x, y, campo[y-1][x-1], municaoGasta, xBonus, yBonus);
+		printf("x: %i y: %i valor pego: %i municão gasta: %i xBonus: %i yBonus: %i", x, y, campo[y-1][x-1], municaoGasta, xBonus, yBonus);
 		printf("\n\n");
 		for(int i = 0; i < 10; i++){
 			for(int j = 0; j < 10; j++){
@@ -193,6 +193,7 @@ int main(){
 			}
 			printf("\n");
 		}
-		printf("\n\n");*/
+		printf("\n\n");
+		*/
 	}while(1);
 }
