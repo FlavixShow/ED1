@@ -34,50 +34,59 @@ int main(){
 	printf("Escolha o método de ordenação\n(a) - Bubble Sort\n(b) - Selection Sort\n(c) - Insertion Sort\n");
 	scanf(" %c", &esc);
 	
-	int cont = n, comp = 0, troca = 0;
+	int comp = 0, troca = 0;
 	if(esc == 'a'){
-		while(cont){
+		for(int i = n; i > 0; i--){
 			//Bubble Sort
-			for(int i = 0; i < cont-1; i++){
-				if(vet[i] > vet[i+1]){
-					int temp = vet[i+1];
-					vet[i+1] = vet[i];
-					vet[i] = temp;
+			for(int j = 0; j < i-1; j++){
+				if(vet[j] > vet[j+1]){
+					int temp = vet[j+1];
+					vet[j+1] = vet[j];
+					vet[j] = temp;
 					troca++;
 				}
 				comp++;
 			}
-			cont--;
 		}
 	}else if(esc == 'b'){
 		//Selection Sort
-		while(cont){
+		for(int i = n; i > 0; i--){
 			int maior = 0;
-			for(int i = 1; i < cont; i++){
-				if(vet[i] > vet[maior]){
-					maior = i;
+			for(int j = 1; j < i; j++){
+				if(vet[j] > vet[maior]){
+					maior = j;
 				}
 				comp++;
-			}
-			cont--;	
+			}	
 			int temp = vet[maior];
-			vet[maior] = vet[cont];
-			vet[cont] = temp;
-			if(maior != cont)
+			vet[maior] = vet[i-1];
+			vet[i-1] = temp;
+			if(maior != i-1)
 				troca++;
-			
 		}
 	}else if(esc == 'c'){
 		//Insertion Sort
-		for(int i = 0; i < n; i++){
+		for(int i = 1; i < n; i++){
 			int temp = vet[i];
-			for(int j = i-1; j >= 0; j--){
+			int j = i-1;
+			while(j >= 0 && temp<vet[j]){
+				vet[j+1] = vet[j];
+				j--;
+				comp++;
+				troca++;
+			}
+			comp++;
+			vet[j + 1] = temp;
+			if(vet[i] != temp){
+				troca++;
+			}
+			/*for(int j = i-1; j >= 0; j--){
 				if(temp < vet[j]){
 					vet[j+1] = vet[j];
 					troca++;
 					comp++;
 					if(!j){
-						vet[0] = temp;
+						vet[j] = temp;
 						troca++;
 					}
 				}else{
@@ -87,7 +96,8 @@ int main(){
 					comp++;
 					break;
 				}
-			}
+			}8*/
+			
 		}
 	}else{
 		printf("Inválido.");
@@ -105,6 +115,5 @@ int main(){
 	printf("]");
 	printf("\n\n");
 	printf("Número de trocas: %i\nNúmero de comparações: %i", troca, comp);
-	
 	return 0;
 }
