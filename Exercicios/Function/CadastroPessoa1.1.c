@@ -5,6 +5,7 @@
 #define INT " %i"
 #define STR " %[^\n]s"
 #define FLT " %f"
+#define MAX 100
 
 typedef struct{
 	int id;
@@ -116,7 +117,7 @@ void lista(Pessoa pessoas[], int cont){
 }
 //main
 int main(){
-	Pessoa pessoas[100];
+	Pessoa pessoas[MAX];
 	int cont = 0;
 	while(1){
 		switch(interface()){
