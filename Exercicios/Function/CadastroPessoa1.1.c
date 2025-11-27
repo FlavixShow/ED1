@@ -26,7 +26,7 @@ void invalido(){
 	system("clear");
 }
 //interface inicial
-int interface(){
+int interface(int cont){
 	int esc;
 	do{
 		printf("1 - Cadastrar pessoa\n");
@@ -34,6 +34,14 @@ int interface(){
 		printf("3 - Listar pessoas\n");
 		printf("0 - Encerrar programa\n");
 		input(INT, "escolha: ", &esc);
+		
+		if(cont == MAX && esc == 1){
+			printf("Número máximo de cadastros atingido. Pressione ENTER...");
+				while(getchar() != '\n');
+				getchar();
+				system("clear");
+			return -1;
+		}
 	
 		if(esc < 0 || esc > 3)
 			invalido();
@@ -43,6 +51,7 @@ int interface(){
 }
 //com ponteiro
 void cadastro(Pessoa* pessoa, int* cont){
+
 	*cont += 1;
 	pessoa->id = *cont;
 	input(STR, "nome: ", pessoa->nome);
@@ -77,7 +86,6 @@ int tipo_ord(Pessoa temp, Pessoa pessoaj, int tipo, int ordem){
 void ordena(Pessoa* pessoas, int cont){
 	int tipo;
 	int ordem;
-	
 	do{
 		printf("Ordernar por\n1 - Id\n2 - Nome\n3 - Idade\n4 - Altura\n");
 		input(INT, "escolha: ", &tipo);
@@ -120,7 +128,7 @@ int main(){
 	Pessoa pessoas[MAX];
 	int cont = 0;
 	while(1){
-		switch(interface()){
+		switch(interface(cont)){
 			case 0: printf("FIM DO PROGRAMA"); return 0;
 				break;
 			case 1: cadastro(&pessoas[cont], &cont);
